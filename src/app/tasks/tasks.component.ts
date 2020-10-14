@@ -29,6 +29,7 @@ export class TasksComponent {
   } 
 
   deleteItem(id: number) {
+    if (!this.tasks[id]) return;
     this.tasks.splice(id, 1);
   }
 

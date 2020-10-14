@@ -14,7 +14,7 @@
         </div>
       
         <div class="actions">
-            <button (click) = 'toggleStatus(task)'>{{task.completed ? "Uncheck" : "Done"}}</button>
+            <button class = 'toggle-button' (click) = 'toggleStatus(task)'>{{task.completed ? "Uncheck" : "Done"}}</button>
             <button (click) = 'deleteItem(id)'>Delete</button>
         </div>
       
