@@ -1,0 +1,36 @@
+.item-card {
+    max-width: 750px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px 8px;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+
+    .ribbon {
+        position: absolute;
+        top: 0;
+        height: 4px;
+        width: 100%;
+        left: 0;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .content {
+        h4 { margin: 0; }
+        p { margin: 8px 0; }
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+
+        button { margin: 2px; }
+    }
+    
+}
+

@@ -1,0 +1,28 @@
+<h1>Today's Tasks</h1>
+
+<ng-container *ngIf = 'tasks.length > 0; else noTasks'>
+    <div *ngFor = 'let task of tasks; let id = index' class="item-card" [style.borderTop] = 'task.completed ? "green" : "red"'>
+  
+        <div 
+          [style.backgroundColor] = 'task.completed ? "green" : "red"'
+          class="ribbon">
+        </div>
+      
+        <div class = 'content'>
+          <h4>{{task.title}}</h4>
+          <p>{{task.description}}</p>
+        </div>
+      
+        <div class="actions">
+            <button (click) = 'toggleStatus(task)'>{{task.completed ? "Uncheck" : "Done"}}</button>
+            <button (click) = 'deleteItem(id)'>Delete</button>
+        </div>
+      
+      </div>      
+</ng-container>
+
+<ng-template #noTasks>
+    <p>No tasks to display</p>
+</ng-template>
+
+<button (click) = 'addTask()'>Add a task</button>
