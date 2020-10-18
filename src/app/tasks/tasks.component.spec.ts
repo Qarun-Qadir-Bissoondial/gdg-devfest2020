@@ -23,9 +23,8 @@ describe('TasksComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
+  
   // create a new test suite
-
   describe('Data Manipulation', () => {
     // put tests here
 
@@ -70,14 +69,14 @@ describe('TasksComponent', () => {
         expect(card.query(By.css('.toggle-button')).nativeElement.innerText).toBe('Done');
       }
     });
-
-    it('should display one more card when an item is added', () => {
+    
+     it('should display one more card when an item is added', () => {
       component.addTask();
       fixture.detectChanges();
       expect(fixture.debugElement.queryAll(By.css('.item-card')).length).toBe(4);
     });
-
-    it('should display one less card when an item is deleted', () => {
+    
+     it('should display one less card when an item is deleted', () => {
       component.deleteItem(1);
       fixture.detectChanges();
       expect(fixture.debugElement.queryAll(By.css('.item-card')).length).toBe(2);
