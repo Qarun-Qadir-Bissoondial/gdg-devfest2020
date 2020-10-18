@@ -29,7 +29,8 @@ export class TasksComponent {
   } 
 
   deleteItem(id: number) {
-    if (!this.tasks[id]) return;
+    // if the item does not exist, then return
+    if (!(this.tasks[id])) return;
     this.tasks.splice(id, 1);
   }
 

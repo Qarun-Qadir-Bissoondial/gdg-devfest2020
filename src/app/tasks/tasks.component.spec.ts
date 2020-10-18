@@ -23,15 +23,19 @@ describe('TasksComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  describe('Data manipulation', () => {
-    it('should successfully add a task', () => {
-      const taskNum = component.tasks.length;
-      component.addTask();
-      const newTaskNum = component.tasks.length;
-      expect(taskNum + 1).toBe(newTaskNum);
-    });
   
+  // create a new test suite
+  describe('Data Manipulation', () => {
+    // put tests here
+
+    it('should successfully add a task to the list', () => {
+      // LENGTH OF THE LIST AFTER SHOULD BE 1 MORE THAN THE LENGTH OF THE LIST BEFORE
+      const numTasks = component.tasks.length;
+      component.addTask();
+      const newNumTasks = component.tasks.length;
+      expect(newNumTasks).toBe(numTasks + 1);
+    });
+
     it('should successfully delete a task', () => {
       const taskNum = component.tasks.length;
       component.deleteItem(1);
@@ -47,11 +51,12 @@ describe('TasksComponent', () => {
     });
 
     it('should toggle a task\'s completion state', () => {
+      // The state before should be opposite to the state after
       const task = component.tasks[1];
       const initialState = task.completed;
       component.toggleStatus(task)
       expect(task.completed).toEqual(!initialState);
-    })
+    });
   });
 
   describe('UI Manipulation', () => {
@@ -64,17 +69,17 @@ describe('TasksComponent', () => {
         expect(card.query(By.css('.toggle-button')).nativeElement.innerText).toBe('Done');
       }
     });
-
-    it('should display one less card when an item is deleted', () => {
-      component.deleteItem(1);
-      fixture.detectChanges();
-      expect(fixture.debugElement.queryAll(By.css('.item-card')).length).toBe(2);
-    });
-
-    it('should display one more card when an item is added', () => {
+    
+     it('should display one more card when an item is added', () => {
       component.addTask();
       fixture.detectChanges();
       expect(fixture.debugElement.queryAll(By.css('.item-card')).length).toBe(4);
+    });
+    
+     it('should display one less card when an item is deleted', () => {
+      component.deleteItem(1);
+      fixture.detectChanges();
+      expect(fixture.debugElement.queryAll(By.css('.item-card')).length).toBe(2);
     });
 
     it('should render changes when an item is marked as complete', () => {
@@ -87,6 +92,4 @@ describe('TasksComponent', () => {
       expect(firstCard.query(By.css('.toggle-button')).nativeElement.innerText).toBe('Uncheck');
     });
   })
-
- 
 });
